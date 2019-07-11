@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="container">
+			<div id="left">
+				<canvas id="canvas" width="700" height="500"></canvas>
+			</div>
+			<div id="right">
+				<textarea class="output" id="msg" style="width: 64rem; height: 18.75rem;"></textarea>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var cee = window.cee || {}
+		</script>
+		<script src="./js/main.js"></script>
+		<script type="text/javascript">
+			(function() {
+				var output = document.getElementById('msg');
+				var canvas = document.getElementById('canvas');
+				var container = new cee.Container(canvas, appendMsg);
+
+				var rect = new cee.Rect(20, 20, 300, 100);
+				container.addChild(rect);
+
+				var circle = new cee.Circle(80, 300, 30, 30);
+				container.addChild(circle);
+
+				var circle1 = new cee.Circle(80, 80, 30, 30, true);
+				container.addChild(circle1);
+
+				container.draw();
+				container.enableClick();
+
+				function appendMsg(msg) {
+					output.value = output.value + msg + "\n";
+				}
+			}())
+		</script>
+	</body>
+</html>
