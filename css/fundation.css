@@ -1,0 +1,28 @@
+.row{
+	display: flex;
+	flex-direction: row;
+}
+.whole{
+	width: 99vw;
+	position: relative;
+}
+
+#main{
+	width: 80%;
+	height: 80vh;
+	direction: block;
+	margin-top: 3.125rem;
+	margin-left: 200px;
+}
+
+.deviceSelect{
+	position: absolute;
+	margin-top: 10%;
+}
+
+.dataSource{
+	margin-left: 1.25rem;
+}
+.layui-form-select .layui-input{
+	width: 5rem!important;
+}
