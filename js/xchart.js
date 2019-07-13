@@ -3,7 +3,6 @@ var form;
 
 //获取到地址栏的id
 var id = getParam("id");
-
 //数据源(默认x)
 var rate = "x";
 
@@ -20,30 +19,19 @@ layui.use('form', function() {
 	form.on('select(deviceId)', function(data) {
 		id = data.value;
 		//改变charts中的设备ID
-		inintialEcharts(data.value, rate);
+		inintialEcharts(data.value, rate,initialData);
+		
+		// connnectSocket(id,rate,initialData);
+		
 	});
 	//监听数据源 下拉框改变事件
 	form.on('select(dataSource)', function(data) {
 		//改变charts中的数据源
 		rate = data.value;
-		inintialEcharts(id, data.value);
+		inintialEcharts(id, data.value,initialData);
 	});
 
 })
-
-//页面加载事件
-window.onload = function(e) {
-
-	//渲染echarts
-	inintialEcharts(id, "x");
-
-	//动态添加设备选择框的值
-	initDeviceIdSelect();
-	//改变设备选择框的值
-	changeDeviceSelect(id);
-}
-
-
 
 //动态添加设备选择框的值
 function initDeviceIdSelect() {

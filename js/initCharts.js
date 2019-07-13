@@ -1,18 +1,9 @@
 
 //初始化 echarts
-function inintialEcharts(id,rate) {
+function inintialEcharts(id,rate,data) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('main'));
 	var text = 'id:' + id + ' ' + rate;
-
-	//表格数据项
-	var data = [
-		["2019-07-12 08:00:00", 116],
-		["2019-07-12 08:20:00", 120],
-		["2019-07-12 10:00:00", 135],
-		["2019-07-13 11:00:00", 140],
-		["2019-07-14 12:00:00", 300]
-	];
 
 	//表格配置项
 	var option = {
