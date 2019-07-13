@@ -1,13 +1,19 @@
-.row{
+.row {
 	display: flex;
 	flex-direction: row;
 }
-.whole{
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.whole {
 	width: 99vw;
 	position: relative;
 }
 
-#main{
+#main {
 	width: 80%;
 	height: 80vh;
 	direction: block;
@@ -15,14 +21,168 @@
 	margin-left: 200px;
 }
 
-.deviceSelect{
+#myCanvas {
+	display: block;
+	margin: 0rem auto;
+	margin-top: 1.875rem;
+}
+
+.exportBtnArea {
+	width: 120px;
+	height: 2.5625rem;
+	margin: 0px auto;
+	margin-top: 0.625rem;
+}
+
+.xBtn{
+	margin-top: 2.5rem;
+}
+
+#exportBtn {
+	width: 100%;
+	height: 100%;
+	background: rgba(44, 115, 196, 1) !important;
+	text-align: center;
+	align-items: center;
+	border-radius: 15px;
+}
+
+.deviceSelect {
 	position: absolute;
 	margin-top: 10%;
 }
 
-.dataSource{
+.dataSource {
 	margin-left: 1.25rem;
 }
-.layui-form-select .layui-input{
-	width: 5rem!important;
+
+.layui-form-select .layui-input {
+	width: 5rem !important;
+}
+
+.addAttendanceBox {
+	width: 45.625rem;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0px rgba(0, 0, 0, 0.09);
+	border-radius: 0.25rem;
+}
+
+
+.headTitle {
+	width: 100%;
+	height: 3.1875rem;
+	line-height: 3.1875rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	border-radius: 0.25rem 0.25rem 0px 0px;
+	color: #FFFFFF;
+	font-size: 1.125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.pickArea {
+	margin-left: 4.6875rem;
+	margin-top: 2.25rem;
+}
+
+.attendanceNameArea {
+	align-items: center;
+}
+
+.attendanceNameText span {
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.attendanceNameinputArea {
+	height: 2.5rem;
+	border-radius: 0.125rem;
+	border: 1px solid rgba(231, 231, 231, 1);
+}
+
+.deviceIdArea {
+	margin-left: 1.25rem !important;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.timeperiod {
+	margin-top: 1.9375rem;
+}
+
+.radioArray {
+	margin-left: 2.25rem !important;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.lefttextArea {
+	line-height: 2.5rem;
+	padding-left: 1.3125rem;
+	padding-right: 0.3125rem;
+}
+
+.middleLine {
+	line-height: 2.5rem;
+	padding-left: 0.3125rem;
+	padding-right: 0.3125rem;
+}
+
+.layui-input,
+.layui-select,
+.layui-textarea {
+	height: 2.5rem !important;
+}
+
+.inputArea .layui-form-select .layui-input {
+	width: 7.8125rem !important;
+}
+
+.inputArea .layui-input,
+.layui-select,
+.layui-textarea {
+	border: none !important;
+}
+
+.attendanceTimePeriodArea {
+	margin-left: 4.25rem;
+}
+
+.underLine {
+	text-decoration: underline;
+}
+
+.exportArea {
+	margin-top: 1.9375rem;
+	align-items: center;
+}
+
+.exportArea .radioArray {
+	margin-left: 3.125rem !important;
+}
+
+.btnSty {
+	width: 13.75rem;
+	border-radius: 0.3125rem;
+}
+
+.resetBtn {
+	margin-left: 5.625rem !important;
+	background-color: #D5D5D5;
+	color: black;
+}
+
+.addDeviceBtnArea {
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+}
+
+#secondRadio+.layui-form-radio {
+	margin-left: 1.5625rem;
+}
+
+#attendanceTimePeriod {
+	width: 26.875rem;
 }

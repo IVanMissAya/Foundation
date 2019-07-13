@@ -34,10 +34,76 @@
 			<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 			<div id="main"></div>
 		</div>
+		
+		<div class="exportBtnArea xBtn">
+			<button type="button" id="exportBtn" class="layui-btn">导出报表</button>
+		</div>
+		
 		<script src="js/echarts.min.js" type="text/javascript"></script>
 		<script src="js/initCharts.js" type="text/javascript"></script>
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="layui/layui.js" type="text/javascript"></script>
 		<script src="js/xchart.js" type="text/javascript"></script>
+		
+		<!-- 导出报表弹框 -->
+		<script type="text/template" id="exportModal">
+			<div class="addAttendanceBox addDevice">
+				<div class="headTitle"><span>选择导出报表</span></div>
+				<div class="column pickArea">
+					<div class="row attendanceNameArea">
+						<div class="attendanceNameText"><span>导出项目</span></div>
+							<div class="addDeviceRaido">
+								<form class="layui-form" action="">
+									<div class="layui-input-block radioArray">
+										<input type="radio" name="excelType" value="router" title="整体报表" checked="">
+										<input type="radio" name="excelType" value="camera" title="单个id报表">
+									</div>
+								</form>
+							</div>
+							<div class="attendanceNameinputArea deviceIdArea">
+								<div class="row singleInput rightInput">
+									<div class="lefttextArea">
+										<span class="leftText">id</span>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="inputArea">
+										<form class="layui-form" action="">
+											<div class="layui-input-inline">
+												<select name="modules" lay-verify="required" lay-search="">
+													<option value="1">layer</option>
+													<option value="2">form</option>
+													<option value="3">layim</option>
+												</select>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="row attendanceNameArea timeperiod">
+						<div class="attendanceNameText"><span>时段</span></div>
+						<div class="attendanceTimePeriodArea">
+							<input type="text" class="layui-input" id="attendanceTimePeriod">
+						</div>
+					</div>
+					<div class="row exportArea">
+						<div class="attendanceNameText"><span>导出到</span></div>
+						<div class="addDeviceRaido">
+							<form class="layui-form" action="">
+								<div class="layui-input-block radioArray exportType">
+									<input type="radio" name="deivce" value="excel" title="Excel" checked="">
+									<input type="radio" name="deivce" value="wechat" title="微信" id="secondRadio">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row addDeviceBtnArea">
+						<button type="button" class="layui-btn layui-btn-normal btnSty exportBtn">导出</button>
+						<button type="button" class="layui-btn layui-btn-normal btnSty resetBtn">重置</button>
+					</div>
+				</div>
+			</div>
+		</script>
+		
 	</body>
 </html>
