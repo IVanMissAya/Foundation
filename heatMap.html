@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>热力图</title>
+		<style type="text/css">
+			#main {
+				width: 80vw;
+				height: 80vh;
+				margin: 0rem auto;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+		<div id="main"></div>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="js/echarts.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'), 'light');
+
+			var hours = ['08:00:00', '08:10:00', '08:20:00', '08:30:00', '08:40:00', '08:50:00', '09:00:00'];
+
+			var days = ['1m', '2m', '3m',
+				'4m', '5m', '6m', '7m'
+			];
+
+			var data = [
+				[0, 0, 1],
+				[1, 0, 2],
+				[2, 0, 3],
+				[3, 0, 4],
+				[0, 1, 5],
+				[1, 1, 6],
+				[2, 1, 7]
+			];
+
+			data = data.map(function(item) {
+				return [item[1], item[0], item[2] || '-'];
+			});
+
+			option = {
+				tooltip: {
+					position: 'top'
+				},
+				animation: false,
+				grid: {
+					height: '50%',
+					y: '10%'
+				},
+				xAxis: {
+					type: 'category',
+					name: "时间",
+					data: hours,
+					splitArea: {
+						show: true
+					}
+				},
+				yAxis: {
+					type: 'category',
+					name: "深度",
+					data: days,
+					splitArea: {
+						show: true
+					}
+				},
+				visualMap: {
+					min: 0,
+					max: 10,
+					calculable: true,
+					orient: 'horizontal',
+					left: 'center',
+					bottom: '15%'
+				},
+				series: [{
+					name: '水平位移',
+					type: 'heatmap',
+					data: data,
+					label: {
+						normal: {
+							show: true
+						}
+					},
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}]
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>

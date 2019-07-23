@@ -30,7 +30,7 @@ function drawFoundation(tangram_inside,ctx){
 	for(var i=0;i<tangram_inside.length;i++){
 		drawLine(tangram_inside[i],ctx,"red");
 		drawLine(tangram_outside[i],ctx,"gray");
-		}
+	}
 }
 					
 			

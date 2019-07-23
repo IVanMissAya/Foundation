@@ -1,6 +1,5 @@
 var socket;
 
-
 //表格数据项
 var initialData = [
 	["2019-07-12 08:00:00", 116],
@@ -13,10 +12,16 @@ window.onload = function(e) {
 
 	//连接socket 接收数据 渲染表格
 	connnectSocket(id, rate);
+	
+	//渲染echarts
+	inintialEcharts(id, rate, initialData);
+	
 	//动态添加设备选择框的值
 	initDeviceIdSelect();
 	//改变设备选择框的值
 	changeDeviceSelect(id);
+	
+	
 }
 
 //连接socket
@@ -24,21 +29,19 @@ function connnectSocket(id, rate) {
 	if (typeof(WebSocket) == "undefined") {
 		console.log("您的浏览器不支持WebSocket");
 	} else {
-		var wsServer = "ws://localhost:8080/chartsSocket/" + id + "/" + rate;
+		var wsServer = "ws://127.0.0.1:8080/chartsSocket/" + id + "/" + rate;
 		console.log(wsServer);
 
 		//初始化socketEntity对象
 		window.parent.webSocket = new socketEntity();
 		window.parent.webSocket.wsServer = wsServer;
 		
-		console.log( socketEntity.webSocketState);
 		
 		//连接websocket
 		window.parent.webSocket.connect(wsServer);
 
 		//当前socket的状态
 		var state = window.parent.webSocket.getState();
-		console.log("state------", state);
 		
 		
 		//收到socket消息的处理
@@ -53,7 +56,7 @@ function connnectSocket(id, rate) {
 					var dataArr = [data.recordTime, data.number];
 					initialData.push(dataArr);
 					//渲染echarts
-					inintialEcharts(id, rate, initialData);
+					// inintialEcharts(id, rate, initialData);
 				}
 			}
 

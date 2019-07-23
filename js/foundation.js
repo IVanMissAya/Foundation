@@ -24,7 +24,7 @@ canvas.addEventListener("mousemove", function(e) {
 	if (isInPoint(eventX, eventY) != null) {
 		canvas.style.cursor = "pointer";
 		//改变样式
-		// changePointStyle(isInPoint(eventX, eventY),ctx);
+		changePointStyle(isInPoint(eventX, eventY),ctx);
 	} else {
 		canvas.style.cursor = "default";
 	}

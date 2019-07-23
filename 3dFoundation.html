@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>echarts-gl</title>
+		<style type="text/css">
+			#main {
+				width: 80vw;
+				height: 80vh;
+				margin: 0rem auto;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+		<div id="main"></div>
+
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="js/echarts.js" type="text/javascript"></script>
+		<script src="js/echarts-gl.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'), 'light');
+
+			var data = [
+				["x", "y", "z", "t"],
+				["1", "2", "3", "2019-07-23 08:00:00"],
+				["2", "3", "4", "2019-07-23 08:10:00"],
+				["3", "4", "5", "2019-07-23 08:20:00"],
+				["4", "5", "6", "2019-07-23 08:30:00"],
+				["5", "6", "7", "2019-07-23 08:40:00"],
+				["6", "7", "8", "2019-07-23 08:50:00"],
+				["7", "8", "9", "2019-07-23 09:00:00"],
+				["8", "9", "10", "2019-07-23 09:10:00"],
+				["9", "10", "11", "2019-07-23 09:20:00"]
+			];
+			var symbolSize = 3.5;
+			option = {
+				tooltip: {},
+				grid3D: {
+					width: '100%'
+				},
+				xAxis3D: {},
+				yAxis3D: {},
+				zAxis3D: {},
+				dataset: {
+					dimensions: [
+						'x',
+						'y',
+						'z',
+						{
+							name: "time",
+							type: "ordinal"
+						}
+					],
+					source: data
+				},
+				series: [{
+					type: 'scatter3D',
+					symbolSize: symbolSize,
+					encode: {
+						x: 'x',
+						y: 'y',
+						z: 'z',
+						t: 't',
+						tooltip: [0, 1, 2, 3]
+					}
+				}]
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>
